@@ -19,6 +19,7 @@ function startQuiz(difficulty) {
         max = 10000;
     }
 
+    nextQuestion();
 }
 
 function generateQuestion() {
