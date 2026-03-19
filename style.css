@@ -2,6 +2,8 @@
 html {
   font-family: "Montserrat", sans-serif;
 }
+
+/* General styles for the quiz application */
 body {
   margin: 0;
   background-color: #dbeafe;
@@ -11,6 +13,7 @@ body {
   min-height: 100vh;
 }
 
+/* Header styles */
 .header {
   padding: 20px;
   font-size: 2.5rem;
@@ -23,6 +26,7 @@ body {
   margin-bottom: 30px;
 }
 
+/* Main container styles */
 main {
   width: 100%;
   display: flex;
@@ -37,6 +41,7 @@ main {
   width: 350px;
 }
 
+/* Button styles */
 button {
   display: block;
   width: 100%;
@@ -56,6 +61,7 @@ button:hover {
   background-color: #6088c8;
 }
 
+/* Input field styles */
 input {
   width: 90%;
   padding: 10px;
@@ -67,10 +73,12 @@ input {
   text-align: center;
 }
 
+/* Question text styles */
 p {
   font-size: 20px;
 }
 
+/* Feedback message styles */
 #feedback {
   margin: 15px;
   font-size: 18px;
