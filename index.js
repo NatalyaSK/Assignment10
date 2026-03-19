@@ -50,7 +50,7 @@ function nextQuestion() {
         return;
     }
 
-    let question = generateuestion();
+    let question = generateQuestion();
 
     document.querySelector(".container").innerHTML = 
     `<h1>Question ${questionNumber + 1}</h1><p>${question}</p>
