@@ -2,6 +2,7 @@ let score;
 let questionNumber;
 let min;
 let max;
+let correctAnswer;
 
 function startQuiz(difficulty) {
     score = 0;
@@ -17,6 +18,44 @@ function startQuiz(difficulty) {
         min = -10000;
         max = 10000;
     }
+
+}
+
+function generateQuestion() {
+    let num1 = Math.floor(Math.random() * (max - min + 1)) + min;
+    let num2 = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    let operators = ["+", "-", "*", "/"];
+    let op = operators[Math.floor(Math.random() * operators.length)];
+
+    if (op === "/") {
+        while (num2 === 0) {
+            num2 = Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        correctAnswer = parseFloat((num1 / num2).toFixed(2));
+    } else if (op === "+") {
+        correctAnswer = num1 + num2;
+    } else if (op === "-") {
+        correctAnswer = num1 - num2;
+    }  else {
+        correctAnswer = num1 * num2;
+    }
+
+    return `${num1} ${op} ${num2}`;
+}
+
+function nextQuestion() {
+    if (questionNumber >= 10) {
+        showResults();
+        return;
+    }
+
+    let question = generateuestion();
+
+    document.querySelector(".container").innerHTML = 
+    `<h1>Question ${questionNumber + 1}</h1><p>${question}</p>
+    <input type="text" id="answer" placeholder="Your answer" />
+    <button onclick="submitAnswer()">Submit</button>`;
 
 }
 
