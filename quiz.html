@@ -8,16 +8,21 @@
     <link rel="stylesheet" href="style.css" />
     <script defer src="index.js"></script>
 </head>
-<div id="score"></div>
-<div class="container">
-    <h1>Math Quiz</h1>
-    <button onclick="startQuiz('beginner')">Beginner</button>
-    <button onclick="startQuiz('intermediate')">Intermediate</button>
-    <button onclick="startQuiz('advanced')">Advanced</button>
-    <button onclick="nextQuestion()">Next</button>
-</div>
 
 <body>
+    <header>
+        <h1 class="header">Math Quiz Application</h1>
+        <div class="headerScore" id="score"></div>
+    </header>
+
+    <main>
+        <div class="container">
+            <button onclick="startQuiz('beginner')">Beginner</button>
+            <button onclick="startQuiz('intermediate')">Intermediate</button>
+            <button onclick="startQuiz('advanced')">Advanced</button>
+            <button onclick="nextQuestion()">Next</button>
+        </div>
+    </main>
 </body>
 
 </html>
