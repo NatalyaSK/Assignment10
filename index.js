@@ -1,8 +1,8 @@
-let score;
-let questionNumber;
-let min;
-let max;
-let correctAnswer;
+let score = 0;
+let questionNumber = 0;
+let min = 0;
+let max = 0;
+let correctAnswer = 0;
 
 function startQuiz(difficulty) {
     score = 0;
@@ -56,11 +56,35 @@ function nextQuestion() {
     document.querySelector(".container").innerHTML = 
     `<h1>Question ${questionNumber + 1}</h1><p>${question}</p>
     <input type="text" id="answer" placeholder="Your answer" />
-    <button onclick="submitAnswer()">Submit</button>`;
+    <button onclick="checkAnswer()">Submit</button>
+    <div id="feedback"></div>`;
+
+}
+
+function checkAnswer() {
+    let userAnswer = document.querySelector("#answer").value.trim();
+
+    if (userAnswer === "") {
+        return;
+    }
+    let feedback = document.querySelector("#feedback");
+
+    if (parseFloat(userAnswer) === correctAnswer) {
+        score++;
+        feedback.textContent = "Correct!";
+    } else {
+        feedback.textContent = `Incorrect! The correct answer was ${correctAnswer}.`;
+    }
+
+    document.getElementById("score").textContent = `Score: ${score}/10`;
+    questionNumber++;
+
+    document.querySelector(".container").innerHTML += `<button onclick="nextQuestion()">Next</button>`;
 
 }
 
 function showResults() {
+    document.getElementById("score").textContent = '';
     document.querySelector(".container").innerHTML = 
     `<h1>Quiz Completed!</h1><p>Your final score is ${score}/10.</p>`;
 }
